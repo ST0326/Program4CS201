@@ -432,7 +432,7 @@ void playHangman(vector<string> &wordList) {
             cout << "Nice Guess! You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;
         } else {
             triesLeft -= 1;
-            cout << "Sorry! Guess is not valid. You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;
+            cout << "Sorry! Guess is not valid or correct. You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;
             if (triesLeft == 0) {
                 cout << "\nYou Lose. The word was: " << randWord << endl;
             }
