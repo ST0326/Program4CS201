@@ -99,8 +99,14 @@ int main()
 
         // Hangman
         else if (userChoice == "6") {
+            char goAgain = *"Y";
             vector<string> words;
-            playHangman(words);
+            while (goAgain != 'N') {
+                playHangman(words);
+                cout << "\nWould you like to play again (Y/N)" << endl;
+                cin >> goAgain;
+                goAgain = toupper(goAgain);
+            }
         }
 
         // Quit
