@@ -39,6 +39,8 @@ void rockPaperScissorsSpock();
 //       if they want to keep drawing, then computer plays. Outputs winner.
 void playBlackJack();
 
+// Pre: Takes in a word list.
+//Post: displays a game of hangman with ? in to represent letters. Gives player six guesses.
 void playHangman(vector<string> &wordList);
 
 

@@ -385,7 +385,7 @@ void playBlackJack() {
     }
 }
 
-
+// reads a file in for hangman.
 void readFile(vector<string> &wordTxt) {
     ifstream inFile;
     inFile.open("words.txt");
@@ -402,13 +402,14 @@ void readFile(vector<string> &wordTxt) {
     inFile.close();
 }
 
+//Plays hangman
 void playHangman(vector<string> &wordList) {
     readFile(wordList);
-    int inx, triesLeft = 6;
+    int inx, triesLeft = 6; // number of tries
     string randWord, guessWord;
     char guessLetter;
 
-    srand(time(0));
+    srand(time(0)); // picks a random word
     inx = rand() % wordList.size();
     randWord = wordList[inx];
 
@@ -417,7 +418,7 @@ void playHangman(vector<string> &wordList) {
     }
     cout << "HANGMAN - your word is: " << guessWord << endl;
 
-    while (randWord != guessWord && triesLeft > 0) {
+    while (randWord != guessWord && triesLeft > 0) { // plays while they have guesses left
         cout << "\nEnter your guess: ";
         cin >> guessLetter;
         if (randWord.find(guessLetter) != string::npos) {
@@ -426,15 +427,15 @@ void playHangman(vector<string> &wordList) {
                     guessWord[i] = guessLetter;
             }
             if (guessWord == randWord) {
-                cout << "Nice Guess! You Win!! The word was " << randWord << endl;
+                cout << "Nice Guess! You Win!! The word was " << randWord << endl; // winner
                 break;
             }
-            cout << "Nice Guess! You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;
+            cout << "Nice Guess! You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;// good guess
         } else {
             triesLeft -= 1;
             cout << "Sorry! Guess is not valid or correct. You have " << triesLeft << " guesses left. Your current word: " << guessWord << endl;
             if (triesLeft == 0) {
-                cout << "\nYou Lose. The word was: " << randWord << endl;
+                cout << "\nYou Lose. The word was: " << randWord << endl; // loser
             }
         }
     }
